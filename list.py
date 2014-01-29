@@ -20,16 +20,27 @@ sulist = [list1, list2, list3, list3, list4, list5]
 counter = 0
 
 for h in sulist:
-
 	counter += 1
+	print counter
 	fo.write('\n \n new set \n \n \n');
 	for i in h:
 		clean = 1
-		chars = ['a', 'c', 'd', 's', 'o', 'r', 'A', 'C', 'D', 'S', 'O', 'R']
+		chars = ['a', 'c', 'd', 's', 'o', 'r', 'A', 'C', 'D', 'S', 'O', 'R', 'i', 'I']
 		for j in chars:
-			if len(i) > 8:
-				k = i[1:]
-				if k.find(j) != -1:
+			if counter == 5:
+				if i[0:1] == 'a' or i[0:1] == 'A':
+					if i[2:3] == 'i' or i[2:3] == 'I':
+						if i[1:2].find(j) != -1 or i[3:].find(j) != -1:
+							clean = 0
+					else:
+						clean = 0
+				else:
+					clean = 0
+			elif counter == 1:
+				if i[1:2] == 'i' or i[1:2] == 'I':
+					if i[0:1].find(j) != -1 or i[2:].find(j) != -1:
+						clean = 0
+				else:
 					clean = 0
 			elif counter == 3:
 				if i[1:2] == 'r' or i[1:2] == 'R':
@@ -49,6 +60,12 @@ for h in sulist:
 						else:
 							clean = 0
 					else:
+						clean = 0
+				else:
+					clean = 0
+			elif counter == 6:
+				if i[1:2] == 'i' or i[1:2] == 'I':
+					if i[0:1].find(j) != -1 or i[2:].find(j) != -1:
 						clean = 0
 				else:
 					clean = 0
