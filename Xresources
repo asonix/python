@@ -1,0 +1,51 @@
+XTerm*locale: true
+XTerm*saveLines: 4096
+XTerm*foreground: #dedede
+XTerm*background: #2d2d2d
+
+XTerm*cursorColor: #dedede
+XTerm*pointerColor: #2d2d2d
+XTerm*pointerColorBackground: #dedede
+
+XTerm*internalBorder: 10
+
+!black
+XTerm*color0: #2d2d2d
+XTerm*color8: #aaaaaa
+
+!red
+XTerm*color1: #cc9797
+XTerm*color9: #d64937
+
+!green
+XTerm*color2:  #97cc9c
+XTerm*color10: #a2dae9
+
+!brown/yellow
+XTerm*color3:  #999999
+XTerm*coror11: #dedede
+
+!blue
+XTerm*color4:  #97b2cc
+XTerm*color12: #a2c1de
+
+!magenta
+XTerm*color5:  #a897cc
+XTerm*color13: #b6a2de
+
+!cyan
+XTerm*color6:  #adbdcc
+XTerm*color14: #bfcfde
+
+!white
+XTerm*color7:  #cccccc
+XTerm*color15: #c7c7c7
+
+!extra
+XTerm*colorUL: #aaaaaa
+XTerm*colorBD: #f9f9f9
+
+XTerm*borderWidth: 0
+XTerm*boldMode: false
+
+

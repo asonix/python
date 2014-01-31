@@ -1,0 +1,192 @@
+# Riley's i3 config file (v4.7.2)
+
+set $mod Mod4
+
+# font for window titles. ISO 10646 = Unicode
+#font pango:
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec xterm
+
+# kill focused window
+bindsym $mod+Shift+Q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run
+
+# application shortcuts
+bindsym $mod+g exec google-chrome
+bindsym $mod+n exec xterm ncmpcpp
+bindsym $mod+m exec ./komodo
+bindsym $mod+y exec switchboard
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+H move left
+bindsym $mod+Shift+J move down
+bindsym $mod+Shift+K move up
+bindsym $mod+Shift+L move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, default)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout default
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+# bindcode $mod+d focus child
+
+# class                 border  backgr. text    indicator
+client.focused          #d64937 #d64937 #dedede #d64937
+client.focused_inactive #2d2d2d #2d2d2d #dedede #2d2d2d
+client.unfocused        #2d2d2d #2d2d2d #dedede #2d2d2d
+client.urgent           #d64937 #2d2d2d #2d2d2d #2d2d2d
+
+# Window pixels
+new_window 1pixel
+new_float  1pixel
+
+# workspace names
+workspace "I" output xinerama-0
+workspace "II" output xinerama-0
+workspace "III" output xinerama-0
+workspace "IV" output xinerama-0
+workspace "V" output xinerama-0
+workspace "VI" output xinerama-0
+workspace "VII" output xinerama-0
+workspace "VIII" output xinerama-0
+workspace "IX" output xinerama-0
+workspace "X" output xinerama-0
+workspace "WWW" output xinerama-0
+workspace "DEV" output xinerama-0
+workspace "REC" output xinerama-0
+
+# switch to workspace
+bindsym $mod+1 workspace I
+bindsym $mod+2 workspace II
+bindsym $mod+3 workspace III
+bindsym $mod+4 workspace IV
+bindsym $mod+5 workspace V
+bindsym $mod+6 workspace VI
+bindsym $mod+7 workspace VII
+bindsym $mod+8 workspace VIII
+bindsym $mod+9 workspace IX
+bindsym $mod+0 workspace X
+bindsym $mod+i workspace WWW
+bindsym $mod+o workspace DEV
+bindsym $mod+u workspace REC
+# move focused container to workspace
+bindsym $mod+Shift+exclam move workspace I
+bindsym $mod+Shift+at move workspace II
+bindsym $mod+Shift+numbersign move workspace III
+bindsym $mod+Shift+dollar move workspace IV
+bindsym $mod+Shift+percent move workspace V
+bindsym $mod+Shift+asciicircum move workspace VI
+bindsym $mod+Shift+ampersand move workspace VII
+bindsym $mod+Shift+asterisk move workspace VIII
+bindsym $mod+Shift+parenleft move workspace IX
+bindsym $mod+Shift+parenright move workspace X
+bindsym $mod+Shift+I move workspace WWW
+bindsym $mod+Shift+O move workspace DEV
+bindsym $mod+Shift+U move workspace REC
+
+#Assign workspaces to screens
+workspace WWW output LVDS1
+workspace REC output VGA1
+
+#Assign applications to workspaces
+assign [class="Google-chrome"] WWW
+assign [class="Firefox"] WWW
+assign [class="Midori"] WWW
+assign [class="Chromium-browser"] WWW
+assign [class="Komodo edit"] DEV
+assign [class="Noise"] REC
+assign [class="Xterm" instance="ncmpcpp"] REC
+assign [class="Xterm" instance="xterm"] DEV
+
+# reload, restart, exit
+bindsym $mod+Shift+C reload
+bindsym $mod+Shift+R restart
+bindsym $mod+Shift+E exit
+
+# resize windows
+mode "resize" {
+    bindsym Shift+H resize shrink width  10px or 10 ppt
+    bindsym Shift+J resize shrink height 10px or 10 ppt
+    bindsym Shift+K resize grow   height 10px or 10 ppt
+    bindsym Shift+L resize grow   width  10px or 10 ppt
+    bindsym Shift+Left resize shrink width  10px or 10 ppt
+    bindsym Shift+Down resize shrink height 10px or 10 ppt
+    bindsym Shift+Up resize grow   height 10px or 10 ppt
+    bindsym Shift+Right resize grow   width  10px or 10 ppt
+
+    # exit resize mode
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+# toggle resize
+bindsym $mod+r mode "resize"
+
+floating_minimum_size 500 x 300
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        workspace_buttons yes
+        position top
+        status_command i3status
+        
+        colors {
+            background #2d2d2d
+            statusline #dedede
+            separator  #2d2d2d
+	    
+	    # class		border	bckgrnd	text
+                focused_workspace     #d64937 #d64937 #dedede
+                active_workspace     #2d2d2d #2d2d2d #dedede
+                inactive_workspace   #2d2d2d #2d2d2d #dedede
+                urgent_workspace     #d64937 #2d2d2d #dedede
+        }
+}
+exec --no-startup-id /./home/riley/Downloads/i3/i3-alternating-layout/alternating_layouts.py
+exec --no-startup-id gnome-settings-daemon
+exec --no-startup-id gnome-sound-applet
+exec --no-startup-id mpd
