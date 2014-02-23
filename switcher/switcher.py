@@ -27,7 +27,7 @@ class ColorsObj(object):
 	
 	#location of background images
 	i3Lightbg = "/usr/share/backgrounds/16.jpg"	
-	i3Darkbg = "/usr/share/backgrounds/Purple.png"
+	i3Darkbg = "/usr/share/backgrounds/Space.png"
 	i3Matrixbg = "~/Pictures/black.png"
 
 	#creation of variable for transparency
@@ -60,7 +60,7 @@ class ColorsObj(object):
 	    for i in xrange(len(xtermHacker)):
 		self.xscheme.append(colors[xtermHacker[i]])
 	else:
-            self.xtermtrans = "80"
+            self.xtermtrans = "60"
 	    self.bg = i3Darkbg
             for i in xrange(len(i3Dark)):
                 self.ischeme.append(colors[i3Dark[i]])

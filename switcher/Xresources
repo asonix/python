@@ -49,7 +49,7 @@ XTerm*borderWidth: 0
 *boldMode: false
 
 URxvt*depth: 32
-URxvt*background: [80]#000000
+URxvt*background: [60]#000000
 
 URxvt*font: xft:terminus
 URxvt*urlLauncher: google-chrome

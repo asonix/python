@@ -9,19 +9,30 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xterm
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+Q kill
+
+enable_alpha_channel yes
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 
 # application shortcuts
 bindsym $mod+g exec google-chrome
-bindsym $mod+n exec xterm ncmpcpp
-bindsym $mod+m exec ./komodo
+bindsym $mod+n exec urxvt -e ncmpcpp
+bindsym $mod+m exec komodo
 bindsym $mod+y exec switchboard
+bindsym $mod+Mod1+y exec pantheon-files
+bindsym $mod+Mod1+n exec noise
+
+# ncmpcpp controls
+bindsym $mod+Mod1+h exec ncmpcpp prev
+bindsym $mod+Mod1+l exec ncmpcpp next
+bindsym $mod+Mod1+k exec ncmpcpp volume +5
+bindsym $mod+Mod1+j exec ncmpcpp volume -5
+bindsym $mod+Mod1+space exec ncmpcpp toggle
 
 # change focus
 bindsym $mod+h focus left
@@ -81,6 +92,7 @@ client.urgent           #d64937 #2d2d2d #2d2d2d #2d2d2d
 
 # Window pixels
 new_window 1pixel
+new_window inset 5
 new_float  1pixel
 
 # workspace names
@@ -172,21 +184,31 @@ floating_minimum_size 500 x 300
 bar {
         workspace_buttons yes
         position top
-        status_command i3status
-        
+        status_command ~/./.i3status.sh
+        mode hide
+	hidden_state hide
+	modifier $mod
+	tray_output LVDS1
+	
         colors {
             background #2d2d2d
             statusline #dedede
             separator  #2d2d2d
 	    
 	    # class		border	bckgrnd	text
-                focused_workspace     #d64937 #d64937 #dedede
-                active_workspace     #2d2d2d #2d2d2d #dedede
-                inactive_workspace   #2d2d2d #2d2d2d #dedede
-                urgent_workspace     #d64937 #2d2d2d #dedede
+            focused_workspace    #d64937 #d64937 #dedede
+            active_workspace     #2d2d2d #2d2d2d #d64937
+            inactive_workspace   #2d2d2d #2d2d2d #dedede
+            urgent_workspace     #d64937 #2d2d2d #dedede
         }
 }
-exec --no-startup-id /./home/riley/Downloads/i3/i3-alternating-layout/alternating_layouts.py
+exec --no-startup-id ~/./alternating_layouts.py
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id gnome-sound-applet
 exec --no-startup-id mpd
+exec --no-startup-id xcompmgr
+exec --no-startup-id google-chrome
+exec --no-startup-id ~/./reread.sh
+exec --no-startup-id mpdscribble
+exec --no-startup-id dropbox start
+exec --no-startup-id nm-applet
