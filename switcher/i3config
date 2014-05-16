@@ -3,7 +3,8 @@
 set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
-#font pango:
+# font -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
+font pango: Droid Sans Mono 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -22,10 +23,13 @@ bindsym $mod+d exec dmenu_run
 # application shortcuts
 bindsym $mod+g exec google-chrome
 bindsym $mod+n exec urxvt -e ncmpcpp
-bindsym $mod+m exec komodo
+bindsym $mod+m exec /home/riley/Komodo-Edit-8/lib/mozilla/komodo
 bindsym $mod+y exec switchboard
-bindsym $mod+Mod1+y exec pantheon-files
+bindsym $mod+Mod1+y exec nemo --no-desktop
 bindsym $mod+Mod1+n exec noise
+bindsym $mod+Mod1+u exec ~/./resizeL.py
+bindsym $mod+Mod1+i exec ~/./resizeS.py
+bindsym $mod+Mod1+m exec urxvt -e sudo mount -t ntfs-3g -o remove_hiberfile /dev/sda2 /media/windows
 
 # ncmpcpp controls
 bindsym $mod+Mod1+h exec ncmpcpp prev
@@ -68,9 +72,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, default)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout default
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout default
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -79,21 +83,28 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
 # bindcode $mod+d focus child
 
 # class                 border  backgr. text    indicator
 client.focused          #d64937 #d64937 #dedede #d64937
-client.focused_inactive #2d2d2d #2d2d2d #dedede #2d2d2d
-client.unfocused        #2d2d2d #2d2d2d #dedede #2d2d2d
+client.focused_inactive #2d2d2d #555555 #dedede #2d2d2d
+client.unfocused        #2d2d2d #555555 #dedede #2d2d2d
 client.urgent           #d64937 #2d2d2d #2d2d2d #2d2d2d
 
-# Window pixels
-new_window 1pixel
-new_window inset 5
-new_float  1pixel
+# Window 2
+new_window pixel 1
+new_window inset 0
+new_float  pixel 1
+
+# border
+hide_edge_borders none
+
+# scratchpad
+bindsym F1 move scratchpad
+bindsym F2 scratchpad show
 
 # workspace names
 workspace "I" output xinerama-0
@@ -104,11 +115,13 @@ workspace "V" output xinerama-0
 workspace "VI" output xinerama-0
 workspace "VII" output xinerama-0
 workspace "VIII" output xinerama-0
-workspace "IX" output xinerama-0
-workspace "X" output xinerama-0
+workspace "NON" output xinerama-0
+workspace "ODT" output xinerama-0
 workspace "WWW" output xinerama-0
 workspace "DEV" output xinerama-0
 workspace "REC" output xinerama-0
+workspace "SKYPE" output xinerama-0
+workspace "GIMP" output xinerama-0
 
 # switch to workspace
 bindsym $mod+1 workspace I
@@ -119,29 +132,35 @@ bindsym $mod+5 workspace V
 bindsym $mod+6 workspace VI
 bindsym $mod+7 workspace VII
 bindsym $mod+8 workspace VIII
-bindsym $mod+9 workspace IX
-bindsym $mod+0 workspace X
+bindsym $mod+9 workspace NON
+bindsym $mod+0 workspace ODT
 bindsym $mod+i workspace WWW
 bindsym $mod+o workspace DEV
 bindsym $mod+u workspace REC
+bindsym $mod+s workspace SKYPE
+bindsym $mod+a workspace GIMP
 # move focused container to workspace
 bindsym $mod+Shift+exclam move workspace I
 bindsym $mod+Shift+at move workspace II
 bindsym $mod+Shift+numbersign move workspace III
 bindsym $mod+Shift+dollar move workspace IV
-bindsym $mod+Shift+percent move workspace V
-bindsym $mod+Shift+asciicircum move workspace VI
+bindsym $mod+Shift+percent move workspace V 
+bindsym $mod+Shift+asciicircum move workspace VI 
 bindsym $mod+Shift+ampersand move workspace VII
 bindsym $mod+Shift+asterisk move workspace VIII
-bindsym $mod+Shift+parenleft move workspace IX
-bindsym $mod+Shift+parenright move workspace X
+bindsym $mod+Shift+parenleft move workspace NON
+bindsym $mod+Shift+parenright move workspace ODT
 bindsym $mod+Shift+I move workspace WWW
 bindsym $mod+Shift+O move workspace DEV
 bindsym $mod+Shift+U move workspace REC
+bindsym $mod+Shift+S move workspace SKYPE
+bindsym $mod+Shift+A move workspace GIMP
 
 #Assign workspaces to screens
 workspace WWW output LVDS1
+workspace GIMP output LVDS1
 workspace REC output VGA1
+workspace SKYPE output VGA1
 
 #Assign applications to workspaces
 assign [class="Google-chrome"] WWW
@@ -150,8 +169,28 @@ assign [class="Midori"] WWW
 assign [class="Chromium-browser"] WWW
 assign [class="Komodo edit"] DEV
 assign [class="Noise"] REC
-assign [class="Xterm" instance="ncmpcpp"] REC
-assign [class="Xterm" instance="xterm"] DEV
+assign [class="Skype"] SKYPE
+assign [class="Gimp"] GIMP
+assign [class="Et"] ODT
+assign [class="Non-DAW"] NON
+assign [class="Non-Session-Manager"] NON
+assign [class="Non-Timeline"] NON
+assign [class="Non-Mixer"] NON
+assign [class="Non-Sequencer"] NON
+
+assign [class="Wps"] ODT
+assign [class="Wpp"] ODT
+assign [class="libreoffice-writer"] ODT
+assign [class="libreoffice-calc"] ODT
+assign [class="libreoffice-impress"] ODT
+assign [class="libreoffice-draw"] ODT
+assign [class="libreoffice-startcenter"] ODT
+
+#floating
+for_window [class="Gnome-calculator"] floating enable
+for_window [class="Switchboard"] floating enable
+for_window [class="Gimp"] floating disable
+for_window [class="Simplescreenrecorder"] floating enable
 
 # reload, restart, exit
 bindsym $mod+Shift+C reload
@@ -160,14 +199,15 @@ bindsym $mod+Shift+E exit
 
 # resize windows
 mode "resize" {
-    bindsym Shift+H resize shrink width  10px or 10 ppt
-    bindsym Shift+J resize shrink height 10px or 10 ppt
-    bindsym Shift+K resize grow   height 10px or 10 ppt
-    bindsym Shift+L resize grow   width  10px or 10 ppt
-    bindsym Shift+Left resize shrink width  10px or 10 ppt
-    bindsym Shift+Down resize shrink height 10px or 10 ppt
-    bindsym Shift+Up resize grow   height 10px or 10 ppt
-    bindsym Shift+Right resize grow   width  10px or 10 ppt
+    bindsym Shift+H     resize shrink width  5px or 5 ppt
+    bindsym Shift+J     resize shrink height 5px or 5 ppt
+    bindsym Shift+K     resize grow   height 5px or 5 ppt
+    bindsym Shift+L     resize grow   width  5px or 5 ppt
+
+    bindsym Shift+Left  resize shrink width  5px or 5 ppt
+    bindsym Shift+Down  resize shrink height 5px or 5 ppt
+    bindsym Shift+Up    resize grow   height 5px or 5 ppt
+    bindsym Shift+Right resize grow   width  5px or 5 ppt
 
     # exit resize mode
     bindsym Escape mode "default"
@@ -177,26 +217,25 @@ mode "resize" {
 # toggle resize
 bindsym $mod+r mode "resize"
 
-floating_minimum_size 500 x 300
+floating_minimum_size 250 x 50
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        workspace_buttons yes
         position top
         status_command ~/./.i3status.sh
-        mode hide
-	hidden_state hide
-	modifier $mod
-	tray_output LVDS1
+	    mode hide
+	    hidden_state hide
+	    modifier $mod
+	    tray_output LVDS1
 	
         colors {
             background #2d2d2d
             statusline #dedede
             separator  #2d2d2d
 	    
-	    # class		border	bckgrnd	text
-            focused_workspace    #d64937 #d64937 #dedede
+	        # class		         border	 bckgrnd text
+            focused_workspace    #2d2d2d #2d2d2d #d64937
             active_workspace     #2d2d2d #2d2d2d #d64937
             inactive_workspace   #2d2d2d #2d2d2d #dedede
             urgent_workspace     #d64937 #2d2d2d #dedede
@@ -205,10 +244,11 @@ bar {
 exec --no-startup-id ~/./alternating_layouts.py
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id gnome-sound-applet
-exec --no-startup-id mpd
-exec --no-startup-id xcompmgr
+exec --no-startup-id compton
 exec --no-startup-id google-chrome
-exec --no-startup-id ~/./reread.sh
+exec --no-startup-id mpd
 exec --no-startup-id mpdscribble
 exec --no-startup-id dropbox start
 exec --no-startup-id nm-applet
+exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,gpg,secrets
+exec --no-startup-id sleep 1 && ~/./.reread.sh

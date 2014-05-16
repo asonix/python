@@ -1,41 +1,43 @@
 XTerm*locale: true
 *saveLines: 4096
-*foreground: #dedede
-XTerm*background: #2d2d2d
+*foreground: #2d2d2d
+XTerm*background: #e5e5e5
 
-*cursorColor: #dedede
-*pointerColor: #2d2d2d
-*pointerColorBackground: #dedede
+*fading: 0
+
+*cursorColor: #2d2d2d
+*pointerColorForeground: #dedede
+*pointerColorBackground: #2d2d2d
 
 *internalBorder: 10
 
 !black
-*color0: #2d2d2d
+*color0: #dedede
 *color8: #aaaaaa
 
 !red
-*color1: #cc9797
-*color9: #d64937
+*color1: #c09853
+*color9: #b94a48
 
 !green
-*color2:  #97cc9c
-*color10: #a2dae9
+*color2:  #f9f9f9
+*color10: #d64937
 
 !brown/yellow
-*color3:  #999999
-*coror11: #dedede
+*color3:  #f57900
+*color11: #aaaaaa
 
 !blue
-*color4:  #97b2cc
-*color12: #a2c1de
+*color4:  #3a87ad
+*color12: #859d00
 
 !magenta
 *color5:  #a897cc
-*color13: #b6a2de
+*color13: #ad3ac8
 
 !cyan
-*color6:  #adbdcc
-*color14: #bfcfde
+*color6:  #268bd2
+*color14: #a0b0de
 
 !white
 *color7:  #cccccc
@@ -43,15 +45,16 @@ XTerm*background: #2d2d2d
 
 !extra
 *colorUL: #aaaaaa
-*colorBD: #f9f9f9
+*colorBD: #2d2d2d
 
 XTerm*borderWidth: 0
 *boldMode: false
 
-URxvt*depth: 32
-URxvt*background: [60]#000000
+!//#URxvt*depth: 32
+URxvt*background: #e5e5e5
 
-URxvt*font: xft:terminus
+URxvt*font: xft:Droid Sans Mono:size=8
+URxvt*letterSpace: -1
 URxvt*urlLauncher: google-chrome
 URxvt*scrollBar: false
 URxvt*scrollBar_right: false
