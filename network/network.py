@@ -32,23 +32,26 @@ pswd = ""
 
 output = 1
 
+iteration = 0
 while output != 0:
     for i in data:
         if ssid == i:
             found = True
             pswd = data[i]
-            a = input("Is %s the correct password? (y/n) " % pswd)
-            if a.lower() != "y":
-                found = False
+            if iteration > 0:
+                a = input("Is %s the correct password? (y/n) " % pswd)
+                if a.lower() != "y":
+                    found = False
 
     if found == False:
         pswd = input("What is the network password\n")
-        data[ssid] = pswd
 
     output = call(['nmcli','dev','wifi','connect',ssid,'password',pswd,'name','wifi'])
 
     if output == 0 and found == False:
+        data[ssid] = pswd
         with open("network.json","w") as outfile:
             json.dump(data,outfile)
     elif output != 0:
         print("Incorrect password")
+        iteration += 1
