@@ -1,0 +1,15 @@
+\\          backslash
+\'          single-quote
+\"          double-quote
+\a          ascii bell
+\b          ascii backspace
+\f          asciiformfeed
+\n          ascii linefeed
+\N {name}   char name from unicode
+\r ASCII    carriage return
+\t ASCII    horizontal tab
+\uxxxx      char with 16bit hex value (unicode)
+\Uxxxxxxxx  char with 32bit hex value (unicode)
+\v          ascii vertical tab
+\ooo        char with octal value ooo
+\xhh        char with hex value hh
