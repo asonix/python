@@ -1,0 +1,18 @@
+does function start with def?                           def
+Does function have only characters and/or _?            def nam_e
+Did you put an open parenthesis after function name?    def nam_e(
+Did you put arguments after the parenthesis?            def nam_e(arg1,arg1
+Did you make each argument unique?                      def nam_e(arg1,arg2
+Did you put a close parenthesis and a colon?            def nam_e(arg1,arg2):
+
+did you indent all lines of code in the function?       def nam_e(arg1,arg2):
+                                                            print("w/e")
+
+did you end your function by writing code w/out indent? def nam_e(arg1,arg2):
+                                                            print("w/e")
+                                                        print("etc.")
+
+Did you call function by typing it's name?              nam_e
+Did you put the ( character after the name?             nam_e(
+Did you put the values you wanted into the parenthesis? nam_e("yo","dawg"
+Did you end the function call with a ) character?       nam_e("yo","dawg")

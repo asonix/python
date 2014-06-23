@@ -1,0 +1,20 @@
+#       comment
+""      string
+''      string
+=       set equals
+\t      tab
+\n      newline
+\\      make \
+""" """ big string
+\r      carriage return
+%r      display any type variable in string
+%s      display string varible in string
+%d      display double variable in string
+argv    from sys, gets commandline arguments
+input   gets user input during execution
+*       multiply
++       add
+-       subtract
+/       divide
+%       modulus (gets remainder of division, or used to place variables into strings)
+def     define function
