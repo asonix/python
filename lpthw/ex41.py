@@ -9,11 +9,11 @@ WORDS = []
 
 PHRASES = {
     "class %%%(%%%):":
-      "Make a class named %%% that is-a %%%.",
+      "Make a class named %%% that is a %%%.",
     "class %%%(object):\n\tdef __init__(self, ***)" :
-      "class %%% has-a  __init__ that takes self and ***  parameters.",
+      "class %%% has a  __init__ that takes self and ***  parameters.",
     "class %%%(object):\n\tdef ***(self, @@@)":
-      "class %%% has-a function named *** that takes self and @@@ parameters.",
+      "class %%% has a function named *** that takes self and @@@ parameters.",
     "*** = %%%()":
       "Set *** to an instance of class %%%.",
     "***.***(@@@)":
@@ -27,7 +27,7 @@ if len(sys.argv) == 2 and sys.argv[1] == "english":
     PHRASE_FIRST = True
 
 for word in urlopen(WORD_URL).readlines():
-    WORDS.append(word.strip())
+    WORDS.append(word.strip().decode())
 
 
 def convert(snippet, phrase):
